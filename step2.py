@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
-
 
 DNAdict = {
     'G': { 'G': 1, 'C':-3, 'A':-3, 'T':-3, 'N':0 },
@@ -11,9 +9,6 @@ DNAdict = {
     'T': { 'G':-3, 'C':-3, 'A':-3, 'T': 1, 'N':0 },
     'N': { 'G': 0, 'C': 0, 'A': 0, 'T': 0, 'N':0 }
 }
-
-
-# In[6]:
 
 
 def SequenceAlign(seqA, seqB, similarityMatrix=DNAdict, insert=8, extend=4):
@@ -202,9 +197,6 @@ def ProfileAlign(profileA, profileB, simiarityMatrix = DNAdict, insert=8, extend
     return score, pA, pB
 
 
-# In[10]:
-
-
 def ProfileMultipleAlignment(seqs, similarityMatrix = DNAdict):
     """
     This function returns Multiple Sequence Alignment (MSA)
@@ -271,10 +263,3 @@ def SimMatrix(alignment, similarityMatrix = DNAdict, gap = 3):
             M = max(Score(alignment[i], alignment[i], similarityMatrix, gap), Score(alignment[j], alignment[j], similarityMatrix, gap))
             A[i,j] = M - Score(alignment[i], alignment[j], similarityMatrix, gap) #the smaler value the more similar sequences are
     return A
-
-
-# In[ ]:
-
-
-
-
