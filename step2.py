@@ -2,14 +2,20 @@
 # coding: utf-8
 
 
+# DNA_2 = {
+#     'G': { 'G': 1, 'C':-3, 'A':-3, 'T':-3, 'N':0 },
+#     'C': { 'G':-3, 'C': 1, 'A':-3, 'T':-3, 'N':0 },
+#     'A': { 'G':-3, 'C':-3, 'A': 1, 'T':-3, 'N':0 },
+#     'T': { 'G':-3, 'C':-3, 'A':-3, 'T': 1, 'N':0 },
+#     'N': { 'G': 0, 'C': 0, 'A': 0, 'T': 0, 'N':0 }
+# }
 DNA_2 = {
-    'G': { 'G': 1, 'C':-3, 'A':-3, 'T':-3, 'N':0 },
-    'C': { 'G':-3, 'C': 1, 'A':-3, 'T':-3, 'N':0 },
-    'A': { 'G':-3, 'C':-3, 'A': 1, 'T':-3, 'N':0 },
-    'T': { 'G':-3, 'C':-3, 'A':-3, 'T': 1, 'N':0 },
+    'G': { 'G': 2, 'C':-2, 'A':-2, 'T':-2, 'N':0 },
+    'C': { 'G':-2, 'C': 2, 'A':-2, 'T':-2, 'N':0 },
+    'A': { 'G':-2, 'C':-2, 'A': 2, 'T':-2, 'N':0 },
+    'T': { 'G':-2, 'C':-2, 'A':-3, 'T': 2, 'N':0 },
     'N': { 'G': 0, 'C': 0, 'A': 0, 'T': 0, 'N':0 }
 }
-
 
 def SequenceAlign(seqA, seqB, similarityMatrix=DNA_2, insert=8, extend=4):
     
@@ -197,7 +203,7 @@ def ProfileAlign(profileA, profileB, simiarityMatrix = DNA_2, insert=8, extend=4
     return score, pA, pB
 
 
-def ProfileMultipleAlignment(seqs, similarityMatrix = DNA_2):
+def ProfileMultipleAlignment(seqs, similarityMatrix = DNA_2, insert=8, extend=4):
     """
     This function returns Multiple Sequence Alignment (MSA)
     for a given list of sequences using profiles.
@@ -213,7 +219,7 @@ def ProfileMultipleAlignment(seqs, similarityMatrix = DNA_2):
         profA = Profile(MSA)
         toAdd = [seqs[i],] #the next sequence (3d, 4th and so on)
         profB = Profile(toAdd)
-        score, alignA, alignB = ProfileAlign(profA, profB, similarityMatrix) #alignment between two profiles
+        score, alignA, alignB = ProfileAlign(profA, profB, similarityMatrix, insert=insert, extend=extend) #alignment between two profiles
         
         gaps = []
         
