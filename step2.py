@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-DNAdict = {
+DNA_2 = {
     'G': { 'G': 1, 'C':-3, 'A':-3, 'T':-3, 'N':0 },
     'C': { 'G':-3, 'C': 1, 'A':-3, 'T':-3, 'N':0 },
     'A': { 'G':-3, 'C':-3, 'A': 1, 'T':-3, 'N':0 },
@@ -11,7 +11,7 @@ DNAdict = {
 }
 
 
-def SequenceAlign(seqA, seqB, similarityMatrix=DNAdict, insert=8, extend=4):
+def SequenceAlign(seqA, seqB, similarityMatrix=DNA_2, insert=8, extend=4):
     
     import numpy as np
     
@@ -113,7 +113,7 @@ def Profile(alignment):
     return profile
 
 
-def ProfileAlign(profileA, profileB, simiarityMatrix = DNAdict, insert=8, extend=4):
+def ProfileAlign(profileA, profileB, simiarityMatrix = DNA_2, insert=8, extend=4):
     
     import numpy as np
     
@@ -197,7 +197,7 @@ def ProfileAlign(profileA, profileB, simiarityMatrix = DNAdict, insert=8, extend
     return score, pA, pB
 
 
-def ProfileMultipleAlignment(seqs, similarityMatrix = DNAdict):
+def ProfileMultipleAlignment(seqs, similarityMatrix = DNA_2):
     """
     This function returns Multiple Sequence Alignment (MSA)
     for a given list of sequences using profiles.
@@ -242,7 +242,7 @@ def ProfileMultipleAlignment(seqs, similarityMatrix = DNAdict):
     return MSA
 
 
-def Score(align1, align2, similarityMatrix = DNAdict, gap = 3):
+def Score(align1, align2, similarityMatrix = DNA_2, gap = 3):
     n = len(align1)
     S = 0
     for i in range(n):
@@ -253,7 +253,7 @@ def Score(align1, align2, similarityMatrix = DNAdict, gap = 3):
     return S
             
 
-def SimMatrix(alignment, similarityMatrix = DNAdict, gap = 3):
+def SimMatrix(alignment, similarityMatrix = DNA_2, gap = 3):
     import numpy as np
     
     n = len(alignment)
